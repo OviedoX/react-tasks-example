@@ -14,17 +14,23 @@ function TaskForm() {
         event.preventDefault();
 
         createTask({title, description});
+
+        let inputTitle = document.getElementById('formTitle');
+        let inputTextarea = document.getElementById('formTextarea');
+
+        inputTitle.value = '';
+        inputTextarea.value = '';
     }
 
   return (
       <div className='max-w-md mx-auto'>
         <form onSubmit={handleSubmit} className='bg-slate-800 p-10 mb-4'>
           <h1 className='text-white text-2xl font-bold mb-3'>Crea tu tarea</h1>
-        <input type="text" placeholder='Esribe tu tarea' 
+        <input id='formTitle' type="text" placeholder='Esribe tu tarea' 
             onChange={e => setTitle(e.target.value)}
             className='bg-slate-300 p-3 w-full mb-2'
         />
-        <textarea placeholder='describe tu tarea...' 
+        <textarea id='formTextarea' placeholder='describe tu tarea...' 
         onChange={e => setDescription(e.target.value)}
         className='bg-slate-300 p-3 w-full mb-2'
         >
